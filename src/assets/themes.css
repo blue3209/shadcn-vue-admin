@@ -1,0 +1,556 @@
+/* ==========================================================================
+   主题样式优化 - 基于 index.css 的平滑渲染设置
+   ========================================================================== */
+
+/* 主题通用优化 */
+@layer themes {
+  /* 为所有主题添加平滑渲染优化 */
+  [class*="theme-"] {
+    /* 优化边框和阴影渲染 */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    /* 启用硬件加速 */
+    transform: translateZ(0);
+    /* 平滑过渡效果 */
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  }
+
+  /* 优化主题内的输入框和按钮 */
+  [class*="theme-"] input,
+  [class*="theme-"] button,
+  [class*="theme-"] select,
+  [class*="theme-"] textarea {
+    /* 确保边框清晰渲染 */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* 优化边框渲染 */
+    outline-offset: 2px;
+  }
+
+  /* 优化边框元素 */
+  [class*="theme-"] [class*="border"],
+  [class*="theme-"] [class*="rounded"] {
+    /* 确保边框平滑 */
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+  }
+}
+
+/* ==========================================================================
+   主题颜色定义
+   ========================================================================== */
+
+/* theme zinc (默认主题) */
+.theme-zinc {
+  --radius: 0.65rem;
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #18181b; /* 深灰色主色 */
+  --primary-foreground: #fafafa;
+  --secondary: #f1f5f9; /* 浅灰色背景 */
+  --secondary-foreground: #18181b;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #f1f5f9;
+  --accent-foreground: #18181b;
+  --destructive: #475569; /* 深灰色破坏性颜色 */
+  --input: #cbd5e1;
+  --ring: #18181b;
+  --chart-1: #3c4859;
+  --chart-2: #475569;
+  --chart-3: #64748b;
+  --chart-4: #94a3b8;
+  --chart-5: #cbd5e1;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #18181b;
+  --sidebar-primary-foreground: #fafafa;
+  --sidebar-accent: #f1f5f9;
+  --sidebar-accent-foreground: #18181b;
+  --sidebar-border: #e2e8f0;
+  --sidebar-ring: #18181b;
+}
+
+.theme-zinc.dark {
+  --background: oklch(0.141 0.005 285.823);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.21 0.006 285.885);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.65 0.2 220);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.65 0.2 220);
+}
+
+/* theme red */
+.theme-red {
+  --radius: 0.65rem;
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #dc2626; /* 鲜明的红色主色 */
+  --primary-foreground: #fef2f2;
+  --secondary: #fef2f2; /* 浅红色背景 */
+  --secondary-foreground: #dc2626;
+  --muted: #fef2f2;
+  --muted-foreground: #64748b;
+  --accent: #fef2f2;
+  --accent-foreground: #dc2626;
+  --destructive: #b91c1c; /* 深红色破坏性颜色 */
+  --input: #fca5a5;
+  --ring: #dc2626;
+  --chart-1: #dc2626;
+  --chart-2: #ef4444;
+  --chart-3: #b91c1c;
+  --chart-4: #f87171;
+  --chart-5: #fca5a5;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #dc2626;
+  --sidebar-primary-foreground: #fef2f2;
+  --sidebar-accent: #fef2f2;
+  --sidebar-accent-foreground: #dc2626;
+  --sidebar-border: #fecaca;
+  --sidebar-ring: #dc2626;
+}
+
+.theme-red.dark {
+  --background: oklch(0.141 0.005 285.823);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.21 0.006 285.885);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.21 0.006 285.885);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.637 0.237 25.331);
+  --primary-foreground: oklch(0.971 0.013 17.38);
+  --secondary: oklch(0.274 0.006 286.033);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.274 0.006 286.033);
+  --muted-foreground: oklch(0.705 0.015 286.067);
+  --accent: oklch(0.274 0.006 286.033);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.637 0.237 25.331);
+  --sidebar: oklch(0.21 0.006 285.885);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.704 0.191 22.216);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.274 0.006 286.033);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.704 0.191 22.216);
+}
+
+/* theme rose */
+.theme-rose {
+  --radius: 0.65rem;
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #e11d48; /* 玫瑰红主色 */
+  --primary-foreground: #fff1f2;
+  --secondary: #fff1f2; /* 浅玫瑰色背景 */
+  --secondary-foreground: #e11d48;
+  --muted: #fff1f2;
+  --muted-foreground: #64748b;
+  --accent: #fff1f2;
+  --accent-foreground: #e11d48;
+  --destructive: #be123c; /* 深玫瑰色破坏性颜色 */
+  --input: #fda4af;
+  --ring: #e11d48;
+  --chart-1: #e11d48;
+  --chart-2: #f43f5e;
+  --chart-3: #be123c;
+  --chart-4: #fb7185;
+  --chart-5: #fda4af;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #e11d48;
+  --sidebar-primary-foreground: #fff1f2;
+  --sidebar-accent: #fff1f2;
+  --sidebar-accent-foreground: #e11d48;
+  --sidebar-border: #fecdd3;
+  --sidebar-ring: #e11d48;
+}
+
+.theme-rose.dark {
+  --background: oklch(0.141 0.005 285.823);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.21 0.006 285.885);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.21 0.006 285.885);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.645 0.246 16.439);
+  --primary-foreground: oklch(0.969 0.015 12.422);
+  --secondary: oklch(0.274 0.006 286.033);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.274 0.006 286.033);
+  --muted-foreground: oklch(0.705 0.015 286.067);
+  --accent: oklch(0.274 0.006 286.033);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.21 0.006 285.885);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.745 0.246 16.439);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.274 0.006 286.033);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.745 0.246 16.439);
+}
+
+/* theme orange */
+.theme-orange {
+  --radius: 0.65rem;
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #ea580c; /* 温暖的橙色主色 */
+  --primary-foreground: #fff7ed;
+  --secondary: #fff7ed; /* 浅橙色背景 */
+  --secondary-foreground: #ea580c;
+  --muted: #fff7ed;
+  --muted-foreground: #64748b;
+  --accent: #fff7ed;
+  --accent-foreground: #ea580c;
+  --destructive: #c2410c; /* 深橙色破坏性颜色 */
+  --input: #fdba74;
+  --ring: #ea580c;
+  --chart-1: #ea580c;
+  --chart-2: #f97316;
+  --chart-3: #c2410c;
+  --chart-4: #fb923c;
+  --chart-5: #fdba74;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #ea580c;
+  --sidebar-primary-foreground: #fff7ed;
+  --sidebar-accent: #fff7ed;
+  --sidebar-accent-foreground: #ea580c;
+  --sidebar-border: #fed7aa;
+  --sidebar-ring: #ea580c;
+}
+
+.theme-orange.dark {
+  --background: oklch(0.141 0.005 285.823);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.21 0.006 285.885);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.21 0.006 285.885);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.646 0.222 41.116);
+  --primary-foreground: oklch(0.98 0.016 73.684);
+  --secondary: oklch(0.274 0.006 286.033);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.274 0.006 286.033);
+  --muted-foreground: oklch(0.705 0.015 286.067);
+  --accent: oklch(0.274 0.006 286.033);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.646 0.222 41.116);
+  --sidebar: oklch(0.21 0.006 285.885);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.746 0.222 41.116);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.274 0.006 286.033);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.746 0.222 41.116);
+}
+
+/* theme yellow */
+.theme-yellow {
+  --radius: 0.65rem;
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #eab308; /* 明亮的黄色主色 */
+  --primary-foreground: #fefce8;
+  --secondary: #fefce8; /* 浅黄色背景 */
+  --secondary-foreground: #eab308;
+  --muted: #fefce8;
+  --muted-foreground: #64748b;
+  --accent: #fefce8;
+  --accent-foreground: #eab308;
+  --destructive: #a16207; /* 深黄色破坏性颜色 */
+  --input: #facc15;
+  --ring: #eab308;
+  --chart-1: #eab308;
+  --chart-2: #f59e0b;
+  --chart-3: #a16207;
+  --chart-4: #fbbf24;
+  --chart-5: #fde047;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #eab308;
+  --sidebar-primary-foreground: #fefce8;
+  --sidebar-accent: #fefce8;
+  --sidebar-accent-foreground: #eab308;
+  --sidebar-border: #fde047;
+  --sidebar-ring: #eab308;
+}
+
+.theme-yellow.dark {
+  --background: oklch(0.141 0.005 285.823);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.21 0.006 285.885);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.21 0.006 285.885);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.795 0.184 86.047);
+  --primary-foreground: oklch(0.421 0.095 57.708);
+  --secondary: oklch(0.274 0.006 286.033);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.274 0.006 286.033);
+  --muted-foreground: oklch(0.705 0.015 286.067);
+  --accent: oklch(0.274 0.006 286.033);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.554 0.135 66.442);
+  --sidebar: oklch(0.21 0.006 285.885);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.85 0.184 86.047);
+  --sidebar-primary-foreground: oklch(0.421 0.095 57.708);
+  --sidebar-accent: oklch(0.274 0.006 286.033);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.85 0.184 86.047);
+}
+
+/* theme green */
+.theme-green {
+  --radius: 0.65rem;
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #16a34a; /* 清新的绿色主色 */
+  --primary-foreground: #f0fdf4;
+  --secondary: #f0fdf4; /* 浅绿色背景 */
+  --secondary-foreground: #16a34a;
+  --muted: #f0fdf4;
+  --muted-foreground: #64748b;
+  --accent: #f0fdf4;
+  --accent-foreground: #16a34a;
+  --destructive: #15803d; /* 深绿色破坏性颜色 */
+  --input: #86efac;
+  --ring: #16a34a;
+  --chart-1: #16a34a;
+  --chart-2: #22c55e;
+  --chart-3: #15803d;
+  --chart-4: #4ade80;
+  --chart-5: #86efac;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #16a34a;
+  --sidebar-primary-foreground: #f0fdf4;
+  --sidebar-accent: #f0fdf4;
+  --sidebar-accent-foreground: #16a34a;
+  --sidebar-border: #bbf7d0;
+  --sidebar-ring: #16a34a;
+}
+
+.theme-green.dark {
+  --background: oklch(0.141 0.005 285.823);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.21 0.006 285.885);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.21 0.006 285.885);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.696 0.17 162.48);
+  --primary-foreground: oklch(0.393 0.095 152.535);
+  --secondary: oklch(0.274 0.006 286.033);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.274 0.006 286.033);
+  --muted-foreground: oklch(0.705 0.015 286.067);
+  --accent: oklch(0.274 0.006 286.033);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.527 0.154 150.069);
+  --sidebar: oklch(0.21 0.006 285.885);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.796 0.17 162.48);
+  --sidebar-primary-foreground: oklch(0.393 0.095 152.535);
+  --sidebar-accent: oklch(0.274 0.006 286.033);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.796 0.17 162.48);
+}
+
+/* theme blue */
+.theme-blue {
+  --radius: 0.65rem;
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #2563eb; /* 更柔和的蓝色主色 */
+  --primary-foreground: oklch(0.984 0.003 247.858);
+  --secondary: #eff6ff; /* 浅蓝色背景 */
+  --secondary-foreground: #2563eb;
+  --muted: #eff6ff;
+  --muted-foreground: oklch(0.554 0.046 257.417);
+  --accent: #eff6ff;
+  --accent-foreground: #2563eb;
+  --destructive: #1d4ed8; /* 深蓝色破坏性颜色 */
+  --input: #bfdbfe;
+  --ring: #2563eb;
+  --chart-1: #2563eb;
+  --chart-2: #3b82f6;
+  --chart-3: #1d4ed8;
+  --chart-4: #60a5fa;
+  --chart-5: #93c5fd;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #2563eb;
+  --sidebar-primary-foreground: #eff6ff;
+  --sidebar-accent: #eff6ff;
+  --sidebar-accent-foreground: #2563eb;
+  --sidebar-border: #bfdbfe;
+  --sidebar-ring: #2563eb;
+}
+
+.theme-blue.dark {
+  --background: oklch(0.141 0.005 285.823);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.21 0.006 285.885);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.21 0.006 285.885);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.546 0.245 262.881);
+  --primary-foreground: oklch(0.379 0.146 265.522);
+  --secondary: oklch(0.274 0.006 286.033);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.274 0.006 286.033);
+  --muted-foreground: oklch(0.705 0.015 286.067);
+  --accent: oklch(0.274 0.006 286.033);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.488 0.243 264.376);
+  --sidebar: oklch(0.21 0.006 285.885);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.688 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.379 0.146 265.522);
+  --sidebar-accent: oklch(0.274 0.006 286.033);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.688 0.243 264.376);
+}
+
+/* theme violet */
+.theme-violet {
+  --radius: 0.65rem;
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #7c3aed; /* 优雅的紫色主色 */
+  --primary-foreground: #faf5ff;
+  --secondary: #faf5ff; /* 浅紫色背景 */
+  --secondary-foreground: #7c3aed;
+  --muted: #faf5ff;
+  --muted-foreground: #64748b;
+  --accent: #faf5ff;
+  --accent-foreground: #7c3aed;
+  --destructive: #6d28d9; /* 深紫色破坏性颜色 */
+
+  --input: #c4b5fd;
+  --ring: #7c3aed;
+  --chart-1: #7c3aed;
+  --chart-2: #8b5cf6;
+  --chart-3: #6d28d9;
+  --chart-4: #a78bfa;
+  --chart-5: #c4b5fd;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #7c3aed;
+  --sidebar-primary-foreground: #faf5ff;
+  --sidebar-accent: #faf5ff;
+  --sidebar-accent-foreground: #7c3aed;
+  --sidebar-border: #ddd6fe;
+  --sidebar-ring: #7c3aed;
+}
+
+.theme-violet.dark {
+  --background: oklch(0.141 0.005 285.823);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.21 0.006 285.885);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.21 0.006 285.885);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.541 0.281 293.009);
+  --primary-foreground: oklch(0.969 0.016 293.756);
+  --secondary: oklch(0.274 0.006 286.033);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.274 0.006 286.033);
+  --muted-foreground: oklch(0.705 0.015 286.067);
+  --accent: oklch(0.274 0.006 286.033);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.541 0.281 293.009);
+  --sidebar: oklch(0.21 0.006 285.885);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.641 0.281 293.009);
+  --sidebar-primary-foreground: oklch(0.969 0.016 293.756);
+  --sidebar-accent: oklch(0.274 0.006 286.033);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.641 0.281 293.009);
+}

@@ -1,0 +1,83 @@
+/* ==========================================================================
+   图表主题 - 与主题系统关联
+   ========================================================================== */
+
+/* 通用图表颜色映射 - 使用主题中定义的 chart 变量 */
+@layer charts {
+  /* 为所有主题统一映射图表颜色 */
+  [class*="theme-"] {
+    /* 图表可视化颜色 - 映射到主题 chart 变量 */
+    --vis-color0: var(--chart-1) !important;
+    --vis-color1: var(--chart-2) !important;
+    --vis-color2: var(--chart-3) !important;
+    --vis-color3: var(--chart-4) !important;
+    --vis-color4: var(--chart-5) !important;
+    
+    /* 图表背景和边框 */
+    --vis-grid-color: var(--border) !important;
+    --vis-background: var(--background) !important;
+    --vis-text-color: var(--foreground) !important;
+    --vis-axis-color: var(--muted-foreground) !important;
+    
+    /* 图表工具提示 */
+    --vis-tooltip-background: var(--popover) !important;
+    --vis-tooltip-border: var(--border) !important;
+    --vis-tooltip-text: var(--popover-foreground) !important;
+  }
+  
+  /* 扩展图表颜色系列 - 支持更多数据系列 */
+  [class*="theme-"] {
+    --vis-color5: color-mix(in oklch, var(--chart-1), var(--chart-2)) !important;
+    --vis-color6: color-mix(in oklch, var(--chart-2), var(--chart-3)) !important;
+    --vis-color7: color-mix(in oklch, var(--chart-3), var(--chart-4)) !important;
+    --vis-color8: color-mix(in oklch, var(--chart-4), var(--chart-5)) !important;
+    --vis-color9: color-mix(in oklch, var(--chart-5), var(--chart-1)) !important;
+  }
+}
+
+/* ==========================================================================
+   特定图表库支持
+   ========================================================================== */
+
+/* Chart.js 图表颜色 */
+[class*="theme-"] {
+  --chartjs-color-1: var(--chart-1);
+  --chartjs-color-2: var(--chart-2);
+  --chartjs-color-3: var(--chart-3);
+  --chartjs-color-4: var(--chart-4);
+  --chartjs-color-5: var(--chart-5);
+  
+  --chartjs-grid-color: var(--border);
+  --chartjs-text-color: var(--foreground);
+}
+
+/* ECharts 图表颜色 */
+[class*="theme-"] {
+  --echarts-color-1: var(--chart-1);
+  --echarts-color-2: var(--chart-2);
+  --echarts-color-3: var(--chart-3);
+  --echarts-color-4: var(--chart-4);
+  --echarts-color-5: var(--chart-5);
+  
+  --echarts-bg-color: var(--background);
+  --echarts-text-color: var(--foreground);
+  --echarts-axis-color: var(--muted-foreground);
+}
+
+/* D3.js 图表颜色 */
+[class*="theme-"] {
+  --d3-color-1: var(--chart-1);
+  --d3-color-2: var(--chart-2);
+  --d3-color-3: var(--chart-3);
+  --d3-color-4: var(--chart-4);
+  --d3-color-5: var(--chart-5);
+}
+
+/* Recharts 图表颜色 */
+[class*="theme-"] {
+  --recharts-color-1: var(--chart-1);
+  --recharts-color-2: var(--chart-2);
+  --recharts-color-3: var(--chart-3);
+  --recharts-color-4: var(--chart-4);
+  --recharts-color-5: var(--chart-5);
+}

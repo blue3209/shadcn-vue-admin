@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  shadcn-vue-admin:
+    build: .
+    container_name: shadcn-vue-admin
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      # 挂载 SSL 证书（如果有的话）
+      # - ./ssl:/etc/nginx/ssl:ro
+      # 挂载自定义 nginx 配置
+      - ./deploy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    restart: unless-stopped
+    networks:
+      - web
+
+  # 可选：添加后端服务
+  # api:
+  #   image: your-backend-image
+  #   container_name: shadcn-vue-admin-api
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     - NODE_ENV=production
+  #   networks:
+  #     - web
+
+networks:
+  web:
+    driver: bridge 
