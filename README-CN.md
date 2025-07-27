@@ -5,6 +5,7 @@
 基于 Vue 3、Vite 和 Shadcn-vue 构建的现代化、功能丰富的管理后台。Fork 自 [shadcn-admin](https://github.com/satnaing/shadcn-admin)，具有增强的功能和改善的用户体验。
 
 ![cover](public/shadcn-vue-admin.png)
+![example](public/zh.png)
 
 ## ✨ 功能特性
 

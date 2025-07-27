@@ -7,6 +7,7 @@
 A modern, feature-rich admin dashboard built with Vue 3, Vite, and Shadcn-vue. Forked from [shadcn-admin](https://github.com/satnaing/shadcn-admin) with enhanced functionality and improved user experience.
 
 ![cover](public/shadcn-vue-admin.png)
+![example](public/en.png)
 
 ## ✨ Features
 
