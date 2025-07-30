@@ -32,7 +32,7 @@ jobs:
         cache: 'pnpm'
     - run: npm install -g pnpm
     - run: pnpm install
-    - run: pnpm run build --frozen-lockfile
+    - run: pnpm run build
       env: 
         BASE_URL: /${{ github.event.repository.name }}
         
