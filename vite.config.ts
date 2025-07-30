@@ -17,7 +17,7 @@ export default defineConfig({
   base: "/shadcn-vue-admin/",
   build: {
     outDir: 'docs'
-  }
+  },
   plugins: [
     VueRouter({
       exclude: RouteGenerateExclude,
