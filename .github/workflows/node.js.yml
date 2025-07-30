@@ -32,4 +32,11 @@ jobs:
         cache: 'pnpm'
     - run: npm install -g pnpm
     - run: pnpm install
-    - run: pnpm run build
+    - run: pnpm run build --frozen-lockfile
+      env: 
+        BASE_URL: /${{ github.event.repository.name }}
+        
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: dist
