@@ -14,10 +14,6 @@ import Layouts from 'vite-plugin-vue-layouts'
 const RouteGenerateExclude = ['**/components/**', '**/layouts/**', '**/data/**', '**/types/**']
 
 export default defineConfig({
-  base: "/shadcn-vue-admin/",
-  build: {
-    outDir: 'docs'
-  },
   plugins: [
     VueRouter({
       exclude: RouteGenerateExclude,
