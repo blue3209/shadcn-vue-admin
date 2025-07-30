@@ -42,8 +42,8 @@ jobs:
     - run: npm install -g pnpm
     - run: pnpm install
     - run: pnpm run build
-      env: 
-        BASE_URL: /${{ github.event.repository.name }}
+      #env: 
+        #BASE_URL: /${{ github.event.repository.name }}
         
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
