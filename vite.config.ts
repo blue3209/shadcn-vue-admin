@@ -14,7 +14,10 @@ import Layouts from 'vite-plugin-vue-layouts'
 const RouteGenerateExclude = ['**/components/**', '**/layouts/**', '**/data/**', '**/types/**']
 
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/shadcn-vue-admin/' : '/',  
+  base: process.env.NODE_ENV === 'production' ? '/shadcn-vue-admin/' : '/',
+  optimizeDeps: {
+    include: ['vue', 'vue-router']
+  },
   plugins: [
     VueRouter({
       exclude: RouteGenerateExclude,

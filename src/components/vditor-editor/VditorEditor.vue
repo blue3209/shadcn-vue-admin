@@ -290,32 +290,32 @@ const renderContent = () => {
               Vditor.chartRender(vditorRef.value, props.cdn, finalTheme.value)
             }
             
-            // 脑图渲染  
-            if (typeof Vditor.mindmapRender === 'function') {
+                        // 脑图渲染
+            if (typeof Vditor.mindmapRender === 'function' && vditorRef.value) {
               console.log('🧠 渲染脑图...')
               Vditor.mindmapRender(vditorRef.value, props.cdn, finalTheme.value)
             }
             
             // 流程图渲染
-            if (typeof Vditor.mermaidRender === 'function') {
+            if (typeof Vditor.mermaidRender === 'function' && vditorRef.value) {
               console.log('🌊 渲染流程图...')
               Vditor.mermaidRender(vditorRef.value, props.cdn, finalTheme.value)
             }
             
             // Graphviz 渲染
-            if (typeof Vditor.graphvizRender === 'function') {
+            if (typeof Vditor.graphvizRender === 'function' && vditorRef.value) {
               console.log('🔀 渲染 Graphviz...')
               Vditor.graphvizRender(vditorRef.value, props.cdn)
             }
             
             // PlantUML 渲染
-            if (typeof Vditor.plantumlRender === 'function') {
+            if (typeof Vditor.plantumlRender === 'function' && vditorRef.value) {
               console.log('🌱 渲染 PlantUML...')
               Vditor.plantumlRender(vditorRef.value, props.cdn)
             }
             
             // 五线谱渲染
-            if (typeof Vditor.abcRender === 'function') {
+            if (typeof Vditor.abcRender === 'function' && vditorRef.value) {
               console.log('🎵 渲染五线谱...')
               Vditor.abcRender(vditorRef.value, props.cdn)
             }
@@ -327,7 +327,7 @@ const renderContent = () => {
             setTimeout(() => {
               try {
                 console.log('🔄 尝试重新渲染...')
-                if (typeof Vditor.mermaidRender === 'function') {
+                if (typeof Vditor.mermaidRender === 'function' && vditorRef.value) {
                   Vditor.mermaidRender(vditorRef.value, props.cdn, finalTheme.value)
                 }
               } catch (retryError) {

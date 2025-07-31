@@ -55,7 +55,6 @@ declare module 'vue' {
     SortSelect: typeof import('./../components/sort-select/index.vue')['default']
     TabSystemTabBar: typeof import('./../components/tab-system/TabBar.vue')['default']
     TabSystemTabManager: typeof import('./../components/tab-system/TabManager.vue')['default']
-    ThemeDemo: typeof import('./../components/theme-demo.vue')['default']
     ToggleTheme: typeof import('./../components/toggle-theme.vue')['default']
     UiAccordion: typeof import('./../components/ui/accordion/Accordion.vue')['default']
     UiAccordionContent: typeof import('./../components/ui/accordion/AccordionContent.vue')['default']

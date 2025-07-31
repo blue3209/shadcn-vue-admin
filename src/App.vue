@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Loading from '@/components/loading.vue'
+import { onMounted } from 'vue'
 import { Toaster } from '@/components/ui/sonner'
 import { useThemeStore } from '@/stores/theme'
 import { THEMES } from '@/stores/theme'
