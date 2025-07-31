@@ -11,6 +11,7 @@ import {
   SquareUserRound,
   User,
   Users,
+  FileText,
 } from 'lucide-vue-next'
 
 import type { NavGroup } from '@/components/app-sidebar/types'
@@ -72,6 +73,13 @@ export function useSidebar() {
             { title: 'common.notFound', url: '/errors/404' },
             { title: 'common.internalError', url: '/errors/500' },
             { title: 'common.maintenanceError', url: '/errors/503' },
+          ],
+        },
+        {
+          title: 'common.example',
+          icon: FileText,
+          items: [
+            { title: 'common.vditor', url: '/example/vditor' },
           ],
         },
       ],

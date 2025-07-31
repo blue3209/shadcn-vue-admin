@@ -107,8 +107,10 @@
     "general": "常规",
     "pages": "页面",
     "auth": "认证",
+    "login": "登录",
     "errors": "错误",
-    "signIn": "登录",
+    "example": "示例",
+    "signIn": "登录1",
     "signIn2": "登录页面2",
     "signUp": "注册",
     "forgotPassword": "忘记密码",
@@ -232,7 +234,8 @@
     "themeDescription": "为仪表板选择主题。",
     "billing": "账单",
     "helpCenter": "帮助中心",
-    "marketing": "营销"
+    "marketing": "营销",
+    "vditor": "Markdown编辑器"
   },
   "dashboard": {
     "trafficTrends": "流量趋势",
@@ -249,6 +252,8 @@
   },
   "auth": {
     "login": "登录",
+    "logining": "登录中...",
+    "demoAccount": "演示账号：",
     "loginTitle": "登录",
     "loginDescription": "请在下方输入您的邮箱和密码以登录您的账户。",
     "notHaveAccount": "还没有账户？",

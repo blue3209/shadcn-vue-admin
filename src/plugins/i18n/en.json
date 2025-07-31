@@ -107,7 +107,9 @@
     "general": "General",
     "pages": "Pages",
     "auth": "Auth",
+    "login": "Login",
     "errors": "Errors",
+    "example": "Example",
     "signIn": "Sign In",
     "signIn2": "Sign In 2",
     "signUp": "Sign Up",
@@ -232,7 +234,8 @@
     "appearanceDescription": "Customize the appearance of the app. The theme will automatically switch between day and night themes.",
     "selectFont": "Select Font",
     "fontDescription": "Set the font you want to use in the dashboard.",
-    "themeDescription": "Select the theme for the dashboard."
+    "themeDescription": "Select the theme for the dashboard.",
+    "vditor": "Markdown Editor"
   },
   "dashboard": {
     "trafficTrends": "Traffic Trends",
@@ -249,6 +252,8 @@
   },
   "auth": {
     "login": "Login",
+    "logining": "Logging in...",
+    "demoAccount": "Demo account:",
     "loginTitle": "Login",
     "loginDescription": "Enter your email and password below to log into your account.",
     "notHaveAccount": "Not have an account?",

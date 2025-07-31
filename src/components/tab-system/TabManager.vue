@@ -88,7 +88,8 @@ function getPageTitle(path: string): string {
     '/billing': t('common.billing'),
     '/help-center': t('common.helpCenter'),
     '/marketing': t('common.marketing'),
-    '/marketing/hello': t('common.welcome')
+    '/marketing/hello': t('common.welcome'),
+    '/example/vditor': t('common.vditor')
   }
 
   return titleMap[path] || t('common.newPage')
