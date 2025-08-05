@@ -235,7 +235,9 @@
     "selectFont": "Select Font",
     "fontDescription": "Set the font you want to use in the dashboard.",
     "themeDescription": "Select the theme for the dashboard.",
-    "vditor": "Markdown Editor"
+    "vditor": "Markdown Editor",
+    "enterFullscreen": "Enter Fullscreen",
+    "exitFullscreen": "Exit Fullscreen"
   },
   "dashboard": {
     "trafficTrends": "Traffic Trends",

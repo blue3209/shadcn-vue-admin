@@ -8,6 +8,12 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip'
 
 import CustomColor from './custom-color.vue'
 import CustomRadius from './custom-radius.vue'
@@ -15,38 +21,31 @@ import CustomThemeTitle from './custom-theme-title.vue'
 import ToggleColorMode from './toggle-color-mode.vue'
 
 const open = ref(false)
-let hoverTimeout: ReturnType<typeof setTimeout> | null = null
-
-const handleMouseEnter = () => {
-  if (hoverTimeout) {
-    clearTimeout(hoverTimeout)
-    hoverTimeout = null
-  }
-  open.value = true
-}
-
-const handleMouseLeave = () => {
-  hoverTimeout = setTimeout(() => {
-    open.value = false
-  }, 150) // 150ms 延迟，避免鼠标快速移动时闪烁
-}
 </script>
 
 <template>
-  <Popover v-model:open="open">
-    <PopoverTrigger>
-      <Button variant="ghost" size="icon" class="relative rounded-full" @mouseenter="handleMouseEnter"
-        @mouseleave="handleMouseLeave">
-        <Paintbrush />
-      </Button>
-    </PopoverTrigger>
-    <PopoverContent align="end" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
-      <CustomThemeTitle />
-      <CustomColor />
-      <CustomRadius />
-      <ToggleColorMode />
-    </PopoverContent>
-  </Popover>
+  <TooltipProvider>
+    <Tooltip>
+      <TooltipTrigger>
+        <Popover v-model:open="open">
+          <PopoverTrigger as-child>
+            <Button variant="ghost" size="icon" class="relative rounded-full">
+              <Paintbrush />
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent align="end">
+            <CustomThemeTitle />
+            <CustomColor />
+            <CustomRadius />
+            <ToggleColorMode />
+          </PopoverContent>
+        </Popover>
+      </TooltipTrigger>
+      <TooltipContent side="bottom">
+        <p>{{ $t('common.customize') }}</p>
+      </TooltipContent>
+    </Tooltip>
+  </TooltipProvider>
 </template>
 
 <style scoped></style>

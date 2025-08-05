@@ -235,7 +235,9 @@
     "billing": "账单",
     "helpCenter": "帮助中心",
     "marketing": "营销",
-    "vditor": "Markdown编辑器"
+    "vditor": "Markdown编辑器",
+    "enterFullscreen": "进入全屏",
+    "exitFullscreen": "退出全屏"
   },
   "dashboard": {
     "trafficTrends": "流量趋势",

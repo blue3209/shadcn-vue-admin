@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 import { Maximize, Minimize } from 'lucide-vue-next'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 
 const isFullscreen = ref(false)
 
@@ -28,13 +29,18 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <UiTooltip content="全屏">
-    <UiButton variant="ghost" size="icon" class="relative rounded-full" @click="toggleFullscreen"
-      :title="isFullscreen ? '退出全屏' : '进入全屏'">
-      <Maximize v-if="!isFullscreen" class="h-4 w-4" />
-      <Minimize v-else class="h-4 w-4" />
-      <span class="sr-only">{{ isFullscreen ? '退出全屏' : '进入全屏' }}</span>
-    </UiButton>
-  </UiTooltip>
-
+  <TooltipProvider>
+    <Tooltip>
+      <TooltipTrigger as-child>
+        <UiButton variant="ghost" size="icon" class="relative rounded-full" @click="toggleFullscreen" >
+          <Maximize v-if="!isFullscreen" class="h-4 w-4" />
+          <Minimize v-else class="h-4 w-4" />
+          <span class="sr-only">{{ isFullscreen ? $t('common.exitFullscreen') : $t('common.enterFullscreen') }}</span>
+        </UiButton>
+      </TooltipTrigger>
+      <TooltipContent side="bottom" :key="isFullscreen ? 'fullscreen' : 'normal'">
+        <p>{{ isFullscreen ? $t('common.exitFullscreen') : $t('common.enterFullscreen') }}</p>
+      </TooltipContent>
+    </Tooltip>
+  </TooltipProvider>
 </template>
