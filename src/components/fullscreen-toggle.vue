@@ -28,15 +28,13 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <UiButton 
-    variant="ghost" 
-    size="icon" 
-    class="relative rounded-full"
-    @click="toggleFullscreen"
-    :title="isFullscreen ? '退出全屏' : '进入全屏'"
-  >
-    <Maximize v-if="!isFullscreen" class="h-4 w-4" />
-    <Minimize v-else class="h-4 w-4" />
-    <span class="sr-only">{{ isFullscreen ? '退出全屏' : '进入全屏' }}</span>
-  </UiButton>
-</template> 
+  <UiTooltip content="全屏">
+    <UiButton variant="ghost" size="icon" class="relative rounded-full" @click="toggleFullscreen"
+      :title="isFullscreen ? '退出全屏' : '进入全屏'">
+      <Maximize v-if="!isFullscreen" class="h-4 w-4" />
+      <Minimize v-else class="h-4 w-4" />
+      <span class="sr-only">{{ isFullscreen ? '退出全屏' : '进入全屏' }}</span>
+    </UiButton>
+  </UiTooltip>
+
+</template>
